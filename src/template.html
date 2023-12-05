@@ -6,6 +6,32 @@
    <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-   
+   <nav class="navbar">
+      <ul class="navbar__list">
+         <li class="navbar__item">
+            <button class="btn btn--generate">Generate array</button>
+         </li>
+
+         <li class="navbar__item">
+            <p>Algorithms <span class="drop-down"></span></p>
+            <ul class="algs">
+               <li class="algs__alg">Heap Sort</li>
+               <li class="algs__alg">Merge Sort</li>
+               <li class="algs__alg">Quick Sort</li>
+               <li class="algs__alg">Selection Sort</li>
+               <li class="algs__alg">Bubble sort</li>
+            </ul>
+         </li>
+
+         <li class="navbar__item">
+            <label for="" class="label label--size">size</label>
+            <input type="range" min="10" max="150" name="" id="">
+         </li>
+
+         <li class="navbar__item">
+            <button class="btn btn--sort">Sort!</button>
+         </li>
+      </ul>
+   </nav>
 </body>
 </html>
