@@ -1,9 +1,14 @@
 :root {
-   --clr-base: #080B21;
-   --clr-primary: #0FA7E6;
+   --clr-base: #080b21;
+   --clr-base-lt: rgba(250, 250, 250, .1);
+
+   --clr-primary: #0fa5e5;
+   --clr-primary-lt: #{lighten(#0fa5e5, 15%)};
    
    --clr-ntrl-min: #fff;
    --clr-ntrl-max: #000;
-
-   --font-size-base: 1.6rem;
+   
+   --font-size-base: 2rem;
+   
+   --shadow-primary: 0 0 2rem .2rem rgba(15, 165, 229, .4);
 }

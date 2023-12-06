@@ -1,0 +1,23 @@
+.drop-down {
+   &__list {
+      display: none;
+   }
+
+   &__icon {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: solid var(--clr-ntrl-min);
+      border-width: 0 .25rem .25rem 0;
+      rotate: 45deg;
+      margin-left: 2rem;
+      margin-bottom: .5rem;
+      transition: all .2s;
+   }
+
+   &:hover &__icon {
+      rotate: -135deg;
+      margin-bottom: 0;
+      margin-top: .5rem;
+   }
+}

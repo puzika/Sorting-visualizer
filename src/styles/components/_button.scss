@@ -1,0 +1,38 @@
+.btn {
+   outline: none;
+   color: inherit;
+   font-size: inherit;
+   border: .2rem solid var(--clr-primary);
+   padding: 1rem 2.5rem;
+   border-radius: 10rem;
+   box-shadow: var(--shadow-primary);
+   transition: background-color .2s;
+   cursor: pointer;
+
+   &--generate {
+      background-color: var(--clr-primary);
+
+      &:hover,
+      &:active {
+         background-color: var(--clr-primary-lt);
+      }
+   }
+
+   &--sort {
+      background-color: transparent;
+
+      &:hover,
+      &:active {
+         background-color: var(--clr-primary);
+      }
+   }
+
+   &--drop-down {
+      border: none;
+      box-shadow: none;
+      
+      &:hover {
+         background-color: rgba(250, 250, 250, .1);
+      }
+   }
+}
