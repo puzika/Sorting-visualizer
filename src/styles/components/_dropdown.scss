@@ -15,7 +15,7 @@
       transition: all .2s;
    }
 
-   &:hover &__icon {
+   &__title:hover &__icon {
       rotate: -135deg;
       margin-bottom: 0;
       margin-top: .5rem;
