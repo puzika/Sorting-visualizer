@@ -12,4 +12,20 @@
          margin-left: 1rem;
       }
    }
+
+   &__bars {
+      display: flex;
+      align-items: end;
+      height: 50rem;
+      margin-top: 5rem;
+   }
+
+   &__bar {
+      flex: 1;
+      background-image: linear-gradient(180deg, var(--clr-primary-lt), var(--clr-primary), var(--clr-base-lt));
+
+      &:not(:last-child) {
+         margin-right: .5rem;
+      }
+   }
 }
