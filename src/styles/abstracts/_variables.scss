@@ -1,7 +1,8 @@
 :root {
    --clr-base: #080b21;
-   --clr-base-lt: rgba(250, 250, 250, .1);
-
+   --clr-base-lt: #1D274C;
+   --clr-base-ltr: #{lighten(#1D274C, 10%)};
+   
    --clr-primary: #0fa5e5;
    --clr-primary-lt: #{lighten(#0fa5e5, 15%)};
    
