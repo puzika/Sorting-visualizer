@@ -27,5 +27,9 @@
       &:not(:last-child) {
          margin-right: .5rem;
       }
+
+      &--current {
+         box-shadow: 0 0 1rem .5rem rgba(15, 165, 229, .8);
+      }
    }
 }
