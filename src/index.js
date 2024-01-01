@@ -71,6 +71,8 @@ const algorithms = {
 
             await timer();
          }
+
+         minElem.classList.remove('array__bar--current');
       }
    },
 
