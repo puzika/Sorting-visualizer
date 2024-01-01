@@ -76,7 +76,91 @@ const algorithms = {
       }
    },
 
-   heapsort: function (arr) {
+   heapsort: async function () {
+      async function heapify(size, rootIdx) {
+         let largest = rootIdx;
+         const left = 2 * rootIdx + 1;
+         const right = 2 * rootIdx + 2;
+
+         let rootElem = document.getElementById(`${rootIdx}`);
+         let largestElem = rootElem;
+
+         const leftElem = document.getElementById(`${left}`);
+         const rightElem = document.getElementById(`${right}`);
+
+         rootElem.classList.add('array__bar--current');
+
+         await timer();
+
+         leftElem?.classList.add('array__bar--current');
+
+         await timer();
+
+         if (left < size && arrCurr[largest] < arrCurr[left]) {
+            largest = left;
+
+            largestElem = leftElem;
+         } else {
+            leftElem?.classList.remove('array__bar--current');
+         }
+
+         rightElem?.classList.add('array__bar--current');
+
+         if (right < size && arrCurr[largest] < arrCurr[right]) {
+            largest = right;
+
+            largestElem.classList.remove('array__bar--current');
+
+            largestElem = rightElem;
+         } else {
+            rightElem?.classList.remove('array__bar--current');
+         }
+
+         await timer();
+
+         largestElem.classList.remove('array__bar--current');
+         rootElem.classList.remove('array__bar--current');
+
+         if (rootIdx !== largest) {
+            const heightLargest = largestElem.dataset.height;
+            const heightRoot = rootElem.dataset.height;
+
+            console.log(heightLargest, heightRoot, arrCurr[largest], arrCurr[rootIdx]);
+
+            largestElem.style.height = `${heightRoot}px`;
+            largestElem.dataset.height = heightRoot;
+
+            rootElem.style.height = `${heightLargest}px`;
+            rootElem.dataset.height = heightLargest;
+
+            [arrCurr[largest], arrCurr[rootIdx]] = [arrCurr[rootIdx], arrCurr[largest]];
+
+            await heapify(size, largest);
+         }
+      }
+
+      for (let i = Math.floor(arrCurr.length / 2) - 1; i >= 0; i--) {
+         await heapify(arrCurr.length, i);
+      }
+
+      for (let i = arrCurr.length - 1; i > 0; i--) {
+         [arrCurr[0], arrCurr[i]] = [arrCurr[i], arrCurr[0]];
+
+         await heapify(i, 0);
+      }
+
+      console.log(arrCurr);
+   },
+
+   mergesort: async function () {
+
+   },
+
+   quicksort: async function () {
+
+   },
+
+   bubblesort: async function () {
 
    }
 };
