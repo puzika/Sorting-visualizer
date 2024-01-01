@@ -10,18 +10,67 @@ const labelMethod = document.querySelector('.array__method');
 const generateButton = document.querySelector('.btn--generate');
 const sortButton = document.querySelector('.btn--sort');
 
+let arrCurr = [];
+
+// TIMER
+
+function timer() {
+   const time = sizeControl.value;
+   return new Promise(function (resolve) {
+      setTimeout(resolve, 1000 / time);
+   });
+}
+
 //ALGORITHMS
 
 const algorithms = {
-   selectionsort: function (arr) {
-      for (let i = 0; i < arr.length - 1; i++) {
-         let minIndex = i;
+   selectionsort: async function () {
+      for (let i = 0; i < arrCurr.length - 1; i++) {
+         const iElem = document.getElementById(`${i}`);
 
-         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[minIndex] > arr[j]) minIndex = j;
+         let minIdx = i;
+         let minElem = iElem;
+
+         minElem.classList.add('array__bar--current');
+
+         await timer();
+
+         for (let j = i + 1; j < arrCurr.length; j++) {
+            const currElem = document.getElementById(`${j}`);
+
+            currElem.classList.add('array__bar--current');
+
+            await timer();
+
+            currElem.classList.remove('array__bar--current');
+
+            if (arrCurr[minIdx] > arrCurr[j]) {
+               minIdx = j;
+
+               minElem.classList.remove('array__bar--current');
+
+               minElem = currElem;
+
+               minElem.classList.add('array__bar--current');
+
+               await timer();
+            }
          }
 
-         [arr[minIndex], arr[i]];
+         if (minIdx !== i) {
+            [arrCurr[minIdx], arrCurr[i]] = [arrCurr[i], arrCurr[minIdx]];
+
+            const heightMin = minElem.dataset.height;
+            const heightI = iElem.dataset.height;
+
+            minElem.style.height = `${heightI}px`;
+            minElem.dataset.height = heightI;
+
+            iElem.style.height = `${heightMin}px`;
+            iElem.dataset.height = heightMin;
+
+            await timer();
+         }
       }
    },
 
@@ -61,11 +110,13 @@ function renderArr(arr) {
 
    for (let i = 0; i < arr.length; i++) {
       const markup = `
-         <span style="height: ${arr[i]}px;" class="array__bar ${i === 0 ? 'array__bar--current' : ''}"></span>
+         <span id="${i}" data-height="${arr[i]}" style="height: ${arr[i]}px;" class="array__bar"></span>
       `;
 
       array.insertAdjacentHTML('beforeend', markup);
    }
+
+   arrCurr = arr;
 }
 
 function createArr(size) {
