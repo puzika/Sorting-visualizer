@@ -131,15 +131,11 @@ const algorithms = {
             const heightIndex = indexElem.dataset.height;
             const heightLargest = largestElem.dataset.height;
 
-            console.log(indexElem);
-
             indexElem.style.height = `${heightLargest}px`;
             indexElem.dataset.height = `${heightLargest}`;
 
             largestElem.style.height = `${heightIndex}px`;
             largestElem.dataset.height = `${heightIndex}`;
-
-            console.log(indexElem);
 
             [arrCurr[index], arrCurr[largest]] = [arrCurr[largest], arrCurr[index]];
 
@@ -171,7 +167,45 @@ const algorithms = {
    },
 
    mergesort: async function () {
+      async function merge(left, right) {
+         const result = [];
+         let leftIdx = 0;
+         let rightIdx = 0;
 
+         while (leftIdx < left.length && rightIdx < right.length) {
+            if (left[leftIdx] < right[rightIdx]) {
+               result.push(left[leftIdx]);
+               leftIdx++;
+            } else {
+               result.push(right[rightIdx]);
+               rightIdx++;
+            }
+         }
+
+         while (leftIdx < left.length) {
+            result.push(left[leftIdx]);
+            leftIdx++;
+         }
+
+         while (rightIdx < right.length) {
+            result.push(right[rightIdx]);
+            rightIdx++;
+         }
+
+         return result;
+      }
+
+      async function mergeS(arr) {
+         if (arr.length <= 1) return arr;
+
+         const middle = Math.floor(arr.length / 2);
+         const left = await mergeS(arr.slice(0, middle));
+         const right = await mergeS(arr.slice(middle));
+
+         return merge(left, right);
+      }
+
+      arrCurr = await mergeS(arrCurr);
    },
 
    quicksort: async function () {
