@@ -24,6 +24,8 @@ function timer() {
 //ALGORITHMS
 
 const algorithms = {
+   //SELECTION SORT**************************************
+
    selectionsort: async function () {
       for (let i = 0; i < arrCurr.length - 1; i++) {
          const iElem = document.getElementById(`${i}`);
@@ -76,64 +78,70 @@ const algorithms = {
       }
    },
 
+   //HEAP SORT*********************************************
+
    heapsort: async function () {
-      async function heapify(size, rootIdx) {
-         let largest = rootIdx;
-         const left = 2 * rootIdx + 1;
-         const right = 2 * rootIdx + 2;
+      async function heapify(size, index) {
+         let largest = index;
+         let left = 2 * index + 1;
+         let right = 2 * index + 2;
 
-         let rootElem = document.getElementById(`${rootIdx}`);
-         let largestElem = rootElem;
+         const indexElem = document.getElementById(`${index}`);
+         let largestElem = indexElem;
 
-         const leftElem = document.getElementById(`${left}`);
-         const rightElem = document.getElementById(`${right}`);
-
-         rootElem.classList.add('array__bar--current');
+         indexElem.classList.add('array__bar--current');
 
          await timer();
 
-         leftElem?.classList.add('array__bar--current');
+         if (left < size) {
+            const leftElem = document.getElementById(`${left}`);
 
-         await timer();
+            leftElem.classList.add('array__bar--current');
 
-         if (left < size && arrCurr[largest] < arrCurr[left]) {
-            largest = left;
+            await timer();
 
-            largestElem = leftElem;
-         } else {
-            leftElem?.classList.remove('array__bar--current');
+            if (arrCurr[left] > arrCurr[largest]) {
+               largest = left;
+               largestElem = leftElem;
+            } else {
+               leftElem.classList.remove('array__bar--current');
+            }
          }
 
-         rightElem?.classList.add('array__bar--current');
+         if (right < size) {
+            const rightElem = document.getElementById(`${right}`);
 
-         if (right < size && arrCurr[largest] < arrCurr[right]) {
-            largest = right;
+            rightElem.classList.add('array__bar--current');
 
-            largestElem.classList.remove('array__bar--current');
+            if (arrCurr[right] > arrCurr[largest]) {
+               largest = right;
+               largestElem.classList.remove('array__bar--current');
+               largestElem = rightElem;
+            }
 
-            largestElem = rightElem;
-         } else {
-            rightElem?.classList.remove('array__bar--current');
+            await timer();
+
+            rightElem.classList.remove('array__bar--current');
          }
 
-         await timer();
-
+         indexElem.classList.remove('array__bar--current');
          largestElem.classList.remove('array__bar--current');
-         rootElem.classList.remove('array__bar--current');
 
-         if (rootIdx !== largest) {
+         if (largest !== index) {
+            const heightIndex = indexElem.dataset.height;
             const heightLargest = largestElem.dataset.height;
-            const heightRoot = rootElem.dataset.height;
 
-            console.log(heightLargest, heightRoot, arrCurr[largest], arrCurr[rootIdx]);
+            console.log(indexElem);
 
-            largestElem.style.height = `${heightRoot}px`;
-            largestElem.dataset.height = heightRoot;
+            indexElem.style.height = `${heightLargest}px`;
+            indexElem.dataset.height = `${heightLargest}`;
 
-            rootElem.style.height = `${heightLargest}px`;
-            rootElem.dataset.height = heightLargest;
+            largestElem.style.height = `${heightIndex}px`;
+            largestElem.dataset.height = `${heightIndex}`;
 
-            [arrCurr[largest], arrCurr[rootIdx]] = [arrCurr[rootIdx], arrCurr[largest]];
+            console.log(indexElem);
+
+            [arrCurr[index], arrCurr[largest]] = [arrCurr[largest], arrCurr[index]];
 
             await heapify(size, largest);
          }
@@ -146,10 +154,20 @@ const algorithms = {
       for (let i = arrCurr.length - 1; i > 0; i--) {
          [arrCurr[0], arrCurr[i]] = [arrCurr[i], arrCurr[0]];
 
+         const zeroElem = document.getElementById(`${0}`);
+         const iElem = document.getElementById(`${i}`);
+
+         const heightZero = zeroElem.dataset.height;
+         const heightIElem = iElem.dataset.height;
+
+         zeroElem.style.height = `${heightIElem}px`;
+         zeroElem.dataset.height = heightIElem;
+
+         iElem.style.height = `${heightZero}px`;
+         iElem.dataset.height = heightZero;
+
          await heapify(i, 0);
       }
-
-      console.log(arrCurr);
    },
 
    mergesort: async function () {
@@ -235,3 +253,4 @@ sortButton.addEventListener('click', function () {
 });
 
 createArr(sizeControl.value);
+// Array.from(array.children).forEach(b => console.log(b));
