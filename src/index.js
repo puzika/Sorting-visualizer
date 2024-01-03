@@ -171,25 +171,84 @@ const algorithms = {
          const result = [];
          let leftIdx = 0;
          let rightIdx = 0;
+         let current = Math.min(...left);
 
          while (leftIdx < left.length && rightIdx < right.length) {
-            if (left[leftIdx] < right[rightIdx]) {
+            const leftElem = document.getElementById(`${left[leftIdx]}`);
+            const rightElem = document.getElementById(`${right[rightIdx]}`);
+
+            leftElem.classList.add('array__bar--current');
+
+            await timer();
+
+            rightElem.classList.add('array__bar--current');
+
+            await timer();
+
+            if (arrCurr[left[leftIdx]] < arrCurr[right[rightIdx]]) {
                result.push(left[leftIdx]);
+
+               const currentElem = document.getElementById(`${current}`);
+
+               currentElem.style.height = `${arrCurr[left[leftIdx]]}px`;
+               currentElem.dataset.height = arrCurr[left[leftIdx]];
+
                leftIdx++;
             } else {
                result.push(right[rightIdx]);
+
+               const currentElem = document.getElementById(`${current}`);
+
+               currentElem.style.height = `${arrCurr[right[rightIdx]]}px`;
+               currentElem.dataset.height = arrCurr[right[rightIdx]];
+
                rightIdx++;
             }
+
+            current++;
+
+            leftElem.classList.remove('array__bar--current');
+            rightElem.classList.remove('array__bar--current');
          }
 
          while (leftIdx < left.length) {
             result.push(left[leftIdx]);
+
+            const leftElem = document.getElementById(`${left[leftIdx]}`);
+
+            leftElem.classList.add('array__bar--current');
+
+            await timer();
+
+            leftElem.classList.remove('array__bar--current');
+
+            const currentElem = document.getElementById(`${current}`);
+
+            currentElem.style.height = `${arrCurr[left[leftIdx]]}px`;
+            currentElem.dataset.height = arrCurr[left[leftIdx]];
+
             leftIdx++;
+            current++;
          }
 
          while (rightIdx < right.length) {
             result.push(right[rightIdx]);
+
+            const rightElem = document.getElementById(`${right[rightIdx]}`);
+
+            rightElem.classList.add('array__bar--current');
+
+            await timer();
+
+            rightElem.classList.remove('array__bar--current');
+
+            const currentElem = document.getElementById(`${current}`);
+
+            currentElem.style.height = `${arrCurr[right[rightIdx]]}px`;
+            currentElem.dataset.height = arrCurr[right[rightIdx]];
+
             rightIdx++;
+            current++;
          }
 
          return result;
@@ -205,7 +264,15 @@ const algorithms = {
          return merge(left, right);
       }
 
-      arrCurr = await mergeS(arrCurr);
+      const arrIdx = [];
+
+      for (let i = 0; i < arrCurr.length; i++) arrIdx.push(i);
+
+      const sortedIdx = await mergeS(arrIdx);
+
+      arrCurr = sortedIdx.map(currVal => arrCurr[currVal]);
+
+      console.log(arrCurr, sortedIdx);
    },
 
    quicksort: async function () {
