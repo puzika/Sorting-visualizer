@@ -334,16 +334,37 @@ const algorithms = {
          let sorted = true;
 
          for (let j = 0; j < arrCurr.length - i - 1; j++) {
+            const currElem = document.getElementById(`${j}`);
+            const nextElem = document.getElementById(`${j + 1}`);
+
+            currElem.classList.add('array__bar--current');
+
+            await timer();
+
+            nextElem.classList.add('array__bar--current');
+
+            await timer();
+
             if (arrCurr[j] > arrCurr[j + 1]) {
                [arrCurr[j], arrCurr[j + 1]] = [arrCurr[j + 1], arrCurr[j]];
                sorted = false;
+
+               const heightCurrent = currElem.dataset.height;
+               const heightNext = nextElem.dataset.height;
+
+               currElem.style.height = `${heightNext}px`;
+               currElem.dataset.height = heightNext;
+
+               nextElem.style.height = `${heightCurrent}px`;
+               nextElem.dataset.height = heightCurrent;
             }
+
+            currElem.classList.remove('array__bar--current');
+            nextElem.classList.remove('array__bar--current');
          }
 
          if (sorted) break;
       }
-
-      console.log(arrCurr);
    }
 };
 
