@@ -3,4 +3,8 @@ body {
    font-size: var(--font-size-base);
    color: var(--clr-ntrl-min);
    background-color: var(--clr-base);
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
 }
