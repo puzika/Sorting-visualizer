@@ -166,6 +166,8 @@ const algorithms = {
       }
    },
 
+   //MERGE SORT********************************************
+
    mergesort: async function () {
       async function merge(left, right) {
          const result = [];
@@ -275,12 +277,73 @@ const algorithms = {
       console.log(arrCurr, sortedIdx);
    },
 
-   quicksort: async function () {
 
+   //QUICK SORT*************************************************
+
+   quicksort: async function () {
+      async function quickS(left = 0, right = arrCurr.length - 1) {
+         if (left >= right) return;
+
+         const pivot = arrCurr[right];
+         let index = left - 1;
+         let indexElem;
+
+         for (let i = left; i <= right; i++) {
+            const currElem = document.getElementById(`${i}`);
+
+            currElem.classList.add('array__bar--current');
+
+            await timer();
+
+            if (arrCurr[i] < pivot || i === right) {
+               index++;
+               [arrCurr[i], arrCurr[index]] = [arrCurr[index], arrCurr[i]];
+
+               indexElem?.classList.remove('array__bar--current');
+               indexElem = document.getElementById(`${index}`);
+               indexElem.classList.add('array__bar--current');
+
+               await timer();
+
+               const heightCurrent = currElem.dataset.height;
+               const heightIndex = indexElem.dataset.height;
+
+               indexElem.style.height = `${heightCurrent}px`;
+               indexElem.dataset.height = heightCurrent;
+
+               currElem.style.height = `${heightIndex}px`;
+               currElem.dataset.height = heightIndex;
+            }
+
+            currElem.classList.remove('array__bar--current');
+         }
+
+         indexElem?.classList.remove('array__bar--current');
+
+         await quickS(left, index - 1);
+         await quickS(index + 1, right);
+      }
+
+      await quickS();
    },
 
-   bubblesort: async function () {
+   //BUBBLE SORT***************************************************
 
+   bubblesort: async function () {
+      for (let i = 0; i < arrCurr.length - 1; i++) {
+         let sorted = true;
+
+         for (let j = 0; j < arrCurr.length - i - 1; j++) {
+            if (arrCurr[j] > arrCurr[j + 1]) {
+               [arrCurr[j], arrCurr[j + 1]] = [arrCurr[j + 1], arrCurr[j]];
+               sorted = false;
+            }
+         }
+
+         if (sorted) break;
+      }
+
+      console.log(arrCurr);
    }
 };
 
