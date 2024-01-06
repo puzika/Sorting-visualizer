@@ -17,6 +17,7 @@
    }
 
    &__bars {
+      height: 500px;
       display: flex;
       align-items: end;
       margin-top: 5rem;
@@ -29,9 +30,9 @@
       &:not(:last-child) {
          margin-right: .4rem;
 
-         @include responsive(tablet) {
-            margin-right: .2;
-         }
+         @include responsive(small-laptop) {
+            margin-right: .2rem;
+         }  
       }
 
       &--current {

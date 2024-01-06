@@ -36,3 +36,15 @@
       }
    }
 }
+
+.btn-container {
+   display: none;
+   margin-bottom: 10rem;
+
+   @include responsive(small-phone) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+   }
+}

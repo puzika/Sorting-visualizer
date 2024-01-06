@@ -21,6 +21,13 @@
       display: flex;
       justify-content: center;
 
+      @include responsive(small-phone) {
+         &--generate,
+         &--sort {
+            display: none;
+         }
+      }
+
       @include responsive(tablet) {
          flex: initial;
       }

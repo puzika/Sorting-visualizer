@@ -7,11 +7,13 @@ const algs = document.querySelector('.drop-down__list');
 const sizeControl = document.querySelector('.size__range');
 const labelSize = document.querySelector('.array__size');
 const labelMethod = document.querySelector('.array__method');
-const generateButton = document.querySelector('.btn--generate');
-const sortButton = document.querySelector('.btn--sort');
+const generateButton = document.querySelectorAll('.btn--generate');
+const sortButton = document.querySelectorAll('.btn--sort');
 const overlay = document.querySelector('.overlay');
 
 let arrCurr = [];
+
+const arrayHeight = parseFloat(window.getComputedStyle(array).getPropertyValue('height'));
 
 // TIMER
 
@@ -379,8 +381,6 @@ const algorithms = {
 
 //VIEW
 
-const arrayHeight = 500;
-
 function genRandomNum(min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -416,6 +416,28 @@ function createArr(size) {
    renderArr(arr);
 }
 
+function checkSize() {
+   if (window.innerWidth > 1400) {
+      if (+sizeControl.max !== 200) {
+         sizeControl.max = 200;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   } else if (window.innerWidth <= 1400 && window.innerWidth > 800) {
+      if (+sizeControl.max !== 150) {
+         sizeControl.max = 150;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   } else {
+      if (+sizeControl.max !== 100) {
+         sizeControl.max = 100;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   }
+}
+
 sizeControl.addEventListener('input', function () {
    labelSize.textContent = sizeControl.value;
 
@@ -430,46 +452,21 @@ algs.addEventListener('click', function (e) {
    labelMethod.textContent = target.textContent;
 });
 
-generateButton.addEventListener('click', function () {
+generateButton.forEach(btn => btn.addEventListener('click', function () {
    createArr(sizeControl.value);
-});
+}));
 
-sortButton.addEventListener('click', function () {
+sortButton.forEach(btn => btn.addEventListener('click', function () {
    const alg = labelMethod.textContent.toLowerCase().split(' ').join('');
 
    overlay.classList.remove('overlay--hidden');
 
    algorithms[alg]();
-});
-
-createArr(sizeControl.value);
+}));
 
 //RESPONSIVE SLIDER
 
-window.addEventListener('resize', function () {
-   if (this.innerWidth > 1400) {
-      if (+sizeControl.max !== 200) {
-         sizeControl.max = 200;
-         createArr(sizeControl.value);
-         labelSize.textContent = sizeControl.value;
-      }
-   } else if (this.innerWidth <= 1400 && this.innerWidth > 1200) {
-      if (+sizeControl.max !== 150) {
-         sizeControl.max = 150;
-         createArr(sizeControl.value);
-         labelSize.textContent = sizeControl.value;
-      }
-   } else if (this.innerWidth <= 1200 && this.innerWidth > 1000) {
-      if (+sizeControl.max !== 120) {
-         sizeControl.max = 120;
-         createArr(sizeControl.value);
-         labelSize.textContent = sizeControl.value;
-      }
-   } else {
-      if (+sizeControl.max !== 100) {
-         sizeControl.max = 100;
-         createArr(sizeControl.value);
-         labelSize.textContent = sizeControl.value;
-      }
-   }
-});
+window.addEventListener('resize', checkSize);
+
+checkSize();
+createArr(sizeControl.value);
