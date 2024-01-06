@@ -2,9 +2,17 @@
    position: relative;
    padding: 2.5rem 0;
 
+   @include responsive(tablet) {
+      padding: 2.5rem 2rem;
+   }
+
    &__list {
       display: flex;
       justify-content: center;
+
+      @include responsive(tablet) {
+         justify-content: space-between;
+      }
    }
 
    &__item {
@@ -12,5 +20,9 @@
       align-items: center;
       display: flex;
       justify-content: center;
+
+      @include responsive(tablet) {
+         flex: initial;
+      }
    }
 }

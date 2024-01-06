@@ -379,13 +379,7 @@ const algorithms = {
 
 //VIEW
 
-function getStyle(elem, style) {
-   const styles = window.getComputedStyle(elem);
-
-   return styles.getPropertyValue(style);
-}
-
-const arrayHeight = parseFloat(getStyle(array, 'height'));
+const arrayHeight = 500;
 
 function genRandomNum(min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
@@ -449,4 +443,33 @@ sortButton.addEventListener('click', function () {
 });
 
 createArr(sizeControl.value);
-// Array.from(array.children).forEach(b => console.log(b));
+
+//RESPONSIVE SLIDER
+
+window.addEventListener('resize', function () {
+   if (this.innerWidth > 1400) {
+      if (+sizeControl.max !== 200) {
+         sizeControl.max = 200;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   } else if (this.innerWidth <= 1400 && this.innerWidth > 1200) {
+      if (+sizeControl.max !== 150) {
+         sizeControl.max = 150;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   } else if (this.innerWidth <= 1200 && this.innerWidth > 1000) {
+      if (+sizeControl.max !== 120) {
+         sizeControl.max = 120;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   } else {
+      if (+sizeControl.max !== 100) {
+         sizeControl.max = 100;
+         createArr(sizeControl.value);
+         labelSize.textContent = sizeControl.value;
+      }
+   }
+});

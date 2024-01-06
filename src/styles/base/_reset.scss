@@ -9,6 +9,14 @@
 html {
    font-size: 62.5%;
    box-sizing: border-box;
+
+   @include responsive(tablet) {
+      font-size: 50%;
+   }
+
+   @include responsive(phone) {
+      font-size: 45%;
+   }
 }
 
 ul {

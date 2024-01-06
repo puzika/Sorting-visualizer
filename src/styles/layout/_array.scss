@@ -1,7 +1,10 @@
 .array {
    margin: 10rem auto;
    width: 80%;
-   padding: 0 5rem;
+
+   @include responsive(tablet) {
+      width: 90%;
+   }
 
    &__info {
       display: flex;
@@ -16,7 +19,6 @@
    &__bars {
       display: flex;
       align-items: end;
-      height: 50rem;
       margin-top: 5rem;
    }
 
@@ -26,6 +28,10 @@
 
       &:not(:last-child) {
          margin-right: .4rem;
+
+         @include responsive(tablet) {
+            margin-right: .2;
+         }
       }
 
       &--current {

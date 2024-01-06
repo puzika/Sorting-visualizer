@@ -1,0 +1,17 @@
+//RESPONSIVE
+
+
+
+@mixin responsive($device) {
+   @if $device == small-laptop {
+      @media only screen and (max-width: 87.5em) { @content }; // 1400px
+   }
+
+   @if $device == tablet {
+      @media only screen and (max-width: 62.5em) { @content }; // 1000px
+   }
+
+   @if $device == phone {
+      @media only screen and (max-width: 50em) { @content }; // 800px
+   }
+}
