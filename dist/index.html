@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sorting Visualizer</title>
+<script defer src="bundle90e29657a1cd03737fc1.js"></script></head>
+<body>
+   <nav class="navbar">
+      <ul class="navbar__list">
+         <div class="overlay overlay--hidden"></div>
+
+         <li class="navbar__item navbar__item--generate">
+            <button class="btn btn--generate">Generate array</button>
+         </li>
+
+         <li class="navbar__item navbar__item--drop-down">
+            <div class="drop-down">
+               <p class="drop-down__title btn btn--drop-down">Algorithms <span class="drop-down__icon"></span></p>
+               <ul class="drop-down__list">
+                  <li class="drop-down__item">Heap Sort</li>
+                  <li class="drop-down__item">Merge Sort</li>
+                  <li class="drop-down__item">Quick Sort</li>
+                  <li class="drop-down__item">Selection Sort</li>
+                  <li class="drop-down__item">Bubble sort</li>
+               </ul>
+            </div>
+         </li>
+
+         <li class="navbar__item navbar__item--size">
+            <label for="" class="size__label">Size</label>
+            <input class="size__range" type="range" min="10" max="200" value="50" name="" id="">
+         </li>
+
+         <li class="navbar__item navbar__item--sort">
+            <button class="btn btn--sort">Sort!</button>
+         </li>
+      </ul>
+   </nav>
+
+   <div class="array">
+      <div class="array__info">
+         <p class="array__method">Heap Sort</p>
+         <p>Size: <span class="array__size">50</span></p>
+      </div>
+
+      <div class="array__bars"></div>
+   </div>
+
+   <div class="btn-container">
+      <button class="btn btn--generate">Generate</button>
+      <button class="btn btn--sort">Sort!</button>
+   </div>
+</body>
+</html>
