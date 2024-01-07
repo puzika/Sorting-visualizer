@@ -21,6 +21,10 @@
       display: flex;
       align-items: end;
       margin-top: 5rem;
+
+      @include responsive(phone) {
+         height: 250px;
+      }
    }
 
    &__bar {

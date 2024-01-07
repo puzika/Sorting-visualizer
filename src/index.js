@@ -13,8 +13,6 @@ const overlay = document.querySelectorAll('.overlay');
 
 let arrCurr = [];
 
-const arrayHeight = parseFloat(window.getComputedStyle(array).getPropertyValue('height'));
-
 // TIMER
 
 function timer() {
@@ -388,6 +386,7 @@ function genRandomNum(min, max) {
 function genRandomArr(size) {
    const arr = [];
    const minHeight = 10;
+   const arrayHeight = parseFloat(window.getComputedStyle(array).getPropertyValue('height'));
 
    for (let i = 0; i < size; i++) {
       const height = genRandomNum(minHeight, arrayHeight);
