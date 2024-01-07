@@ -78,7 +78,7 @@ body::-webkit-scrollbar {
 }
 @media only screen and (max-width: 62.5em) {
   .navbar {
-    padding: 2.5rem 2rem;
+    padding: 2.5rem;
   }
 }
 .navbar__list {
@@ -124,11 +124,21 @@ body::-webkit-scrollbar {
 .array__info span {
   margin-left: 1rem;
 }
+@media only screen and (max-width: 50em) {
+  .array__info {
+    font-size: 2.5rem;
+  }
+}
 .array__bars {
   height: 500px;
   display: flex;
   align-items: end;
   margin-top: 5rem;
+}
+@media only screen and (max-width: 50em) {
+  .array__bars {
+    height: 250px;
+  }
 }
 .array__bar {
   flex: 1;
@@ -176,14 +186,24 @@ body::-webkit-scrollbar {
 .btn--generate {
   background-color: var(--clr-primary);
 }
-.btn--generate:hover, .btn--generate:active {
+.btn--generate:active {
   background-color: var(--clr-primary-lt);
+}
+@media (hover: hover) {
+  .btn--generate:hover {
+    background-color: var(--clr-primary-lt);
+  }
 }
 .btn--sort {
   background-color: transparent;
 }
-.btn--sort:hover, .btn--sort:active {
+.btn--sort:active {
   background-color: var(--clr-primary);
+}
+@media (hover: hover) {
+  .btn--sort:hover {
+    background-color: var(--clr-primary);
+  }
 }
 .btn--drop-down {
   border: none;
@@ -194,7 +214,9 @@ body::-webkit-scrollbar {
 }
 
 .btn-container {
+  position: relative;
   display: none;
+  padding: 2rem 0;
   margin-bottom: 10rem;
 }
 @media only screen and (max-width: 37.5em) {
@@ -249,6 +271,11 @@ body::-webkit-scrollbar {
   margin-bottom: 0.5rem;
   transition: all 0.2s;
 }
+@media only screen and (max-width: 22.5em) {
+  .drop-down__icon {
+    display: none;
+  }
+}
 .drop-down:hover .drop-down__icon {
   rotate: -135deg;
   margin-bottom: 0;
@@ -262,11 +289,16 @@ body::-webkit-scrollbar {
 .size__label {
   margin-right: 2rem;
 }
+@media only screen and (max-width: 50em) {
+  .size__label {
+    margin-right: 1rem;
+  }
+}
 .size__range {
   outline: none;
   width: 50%;
   cursor: pointer;
-}`, "",{"version":3,"sources":["webpack://./src/styles/abstracts/_variables.scss","webpack://./src/styles/main.scss","webpack://./src/styles/base/_reset.scss","webpack://./src/styles/abstracts/_mixins.scss","webpack://./src/styles/base/_base.scss","webpack://./src/styles/layout/_navbar.scss","webpack://./src/styles/layout/_array.scss","webpack://./src/styles/layout/_overlay.scss","webpack://./src/styles/components/_button.scss","webpack://./src/styles/components/_dropdown.scss","webpack://./src/styles/components/_sizecontrol.scss"],"names":[],"mappings":"AAAA;EACG,mBAAA;EACA,sBAAA;EACA,uBAAA;EAEA,sBAAA;EACA,yBAAA;EAEA,oBAAA;EACA,oBAAA;EAEA,sBAAA;EAEA,uDAAA;EAEA,sBAAA;ACHH;;ACZA;;;EAGG,SAAA;EACA,UAAA;EACA,mBAAA;ADeH;;ACZA;EACG,gBAAA;EACA,sBAAA;ADeH;AEfM;EDFN;IAKM,cAAA;EDgBJ;AACF;AEhBM;EDNN;IASM,cAAA;EDiBJ;AACF;;ACdA;EACG,gBAAA;ADiBH;;AGvCA;EACG,iCAAA;EACA,gCAAA;EACA,0BAAA;EACA,iCAAA;AH0CH;AGxCG;EACG,aAAA;AH0CN;;AIjDA;EACG,kBAAA;EACA,iBAAA;AJoDH;AE5CM;EEVN;IAKM,oBAAA;EJqDJ;AACF;AInDG;EACG,aAAA;EACA,uBAAA;AJqDN;AErDM;EEFH;IAKM,8BAAA;EJsDP;AACF;AInDG;EACG,OAAA;EACA,mBAAA;EACA,aAAA;EACA,uBAAA;AJqDN;AExDM;EEMG;IAEG,aAAA;EJoDV;AACF;AErEM;EEOH;IAcM,aAAA;EJoDP;AACF;;AKpFA;EACG,kBAAA;EACA,UAAA;ALuFH;AE/EM;EGVN;IAKM,UAAA;ELwFJ;AACF;AKtFG;EACG,aAAA;EACA,8BAAA;EACA,eAAA;ALwFN;AKtFM;EACG,iBAAA;ALwFT;AKpFG;EACG,aAAA;EACA,aAAA;EACA,gBAAA;EACA,gBAAA;ALsFN;AKnFG;EACG,OAAA;EACA,wGAAA;ALqFN;AKnFM;EACG,oBAAA;ALqFT;AE7GM;EGuBA;IAIM,oBAAA;ELsFV;AACF;AKnFM;EACG,6CAAA;ALqFT;;AM3HA;EACG,kBAAA;EACA,MAAA;EACA,OAAA;EACA,WAAA;EACA,YAAA;EACA,iCAAA;EACA,aAAA;EACA,oBAAA;EACA,WAAA;AN8HH;AM5HG;EACG,kBAAA;EACA,UAAA;AN8HN;;AO3IA;EACG,aAAA;EACA,cAAA;EACA,kBAAA;EACA,uCAAA;EACA,oBAAA;EACA,oBAAA;EACA,iCAAA;EACA,iCAAA;EACA,eAAA;AP8IH;AO5IG;EACG,oCAAA;AP8IN;AO5IM;EAEG,uCAAA;AP6IT;AOzIG;EACG,6BAAA;AP2IN;AOzIM;EAEG,oCAAA;AP0IT;AOtIG;EACG,YAAA;EACA,gBAAA;APwIN;AOtIM;EACG,0CAAA;APwIT;;AOnIA;EACG,aAAA;EACA,oBAAA;APsIH;AE7JM;EKqBN;IAKM,aAAA;IACA,sBAAA;IACA,mBAAA;IACA,WAAA;EPuIJ;AACF;;AQvLA;EACG,kBAAA;AR0LH;AQxLG;EACG,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,gBAAA;EACA,oCAAA;EACA,SAAA;EACA,SAAA;EACA,iBAAA;EACA,qBAAA;EACA,gBAAA;EACA,kBAAA;EACA,UAAA;EACA,oBAAA;AR0LN;AQvLG;EACG,sBAAA;EACA,uGAAA;EACA,yBAAA;EACA,4BAAA;EACA,gCAAA;EACA,uDAAA;EACA,eAAA;ARyLN;AQvLM;EACG,4BAAA;EACA,qCAAA;ARyLT;AQrLG;EACG,qBAAA;EACA,aAAA;EACA,cAAA;EACA,iCAAA;EACA,iCAAA;EACA,aAAA;EACA,iBAAA;EACA,qBAAA;EACA,oBAAA;ARuLN;AQpLG;EACG,eAAA;EACA,gBAAA;EACA,kBAAA;ARsLN;AQnLG;EACG,mBAAA;EACA,UAAA;ARqLN;;AS3OG;EACG,kBAAA;AT8ON;AS3OG;EACG,aAAA;EACA,UAAA;EACA,eAAA;AT6ON","sourcesContent":[":root {\r\n   --clr-base: #080b21;\r\n   --clr-base-lt: #1D274C;\r\n   --clr-base-ltr: #{lighten(#1D274C, 10%)};\r\n   \r\n   --clr-primary: #0fa5e5;\r\n   --clr-primary-lt: #{lighten(#0fa5e5, 15%)};\r\n   \r\n   --clr-ntrl-min: #fff;\r\n   --clr-ntrl-max: #000;\r\n   \r\n   --font-size-base: 2rem;\r\n   \r\n   --shadow-primary: 0 0 2rem .2rem rgba(15, 165, 229, .4);\r\n\r\n   --array-bar-width: 5px; \r\n}","//FONT\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');\r\n\r\n//ABSTRACTS\r\n\r\n@import './abstracts/variables';\r\n@import './abstracts/mixins';\r\n\r\n//BASE\r\n\r\n@import './base/reset';\r\n@import './base/base';\r\n\r\n//Layout\r\n\r\n@import './layout/navbar';\r\n@import './layout/array';\r\n@import './layout/overlay';\r\n\r\n//COMPONENTS\r\n\r\n@import './components/button';\r\n@import './components/dropdown';\r\n@import './components/sizecontrol';\r\n","*,\r\n*::before,\r\n*::after {\r\n   margin: 0;\r\n   padding: 0;\r\n   box-sizing: inherit;\r\n}\r\n\r\nhtml {\r\n   font-size: 62.5%;\r\n   box-sizing: border-box;\r\n\r\n   @include responsive(tablet) {\r\n      font-size: 50%;\r\n   }\r\n\r\n   @include responsive(phone) {\r\n      font-size: 45%;\r\n   }\r\n}\r\n\r\nul {\r\n   list-style: none;\r\n}","//RESPONSIVE\r\n\r\n\r\n\r\n@mixin responsive($device) {\r\n   @if $device == small-laptop {\r\n      @media only screen and (max-width: 87.5em) { @content }; // 1400px\r\n   }\r\n\r\n   @if $device == tablet {\r\n      @media only screen and (max-width: 62.5em) { @content }; // 1000px\r\n   }\r\n\r\n   @if $device == phone {\r\n      @media only screen and (max-width: 50em) { @content }; // 800px\r\n   }\r\n\r\n   @if $device == small-phone {\r\n      @media only screen and (max-width: 37.5em) { @content }; //600px\r\n   }\r\n}","body {\r\n   font-family: 'Roboto', sans-serif;\r\n   font-size: var(--font-size-base);\r\n   color: var(--clr-ntrl-min);\r\n   background-color: var(--clr-base);\r\n\r\n   &::-webkit-scrollbar {\r\n      display: none;\r\n   }\r\n}",".navbar {\r\n   position: relative;\r\n   padding: 2.5rem 0;\r\n\r\n   @include responsive(tablet) {\r\n      padding: 2.5rem 2rem;\r\n   }\r\n\r\n   &__list {\r\n      display: flex;\r\n      justify-content: center;\r\n\r\n      @include responsive(tablet) {\r\n         justify-content: space-between;\r\n      }\r\n   }\r\n\r\n   &__item {\r\n      flex: 1;\r\n      align-items: center;\r\n      display: flex;\r\n      justify-content: center;\r\n\r\n      @include responsive(small-phone) {\r\n         &--generate,\r\n         &--sort {\r\n            display: none;\r\n         }\r\n      }\r\n\r\n      @include responsive(tablet) {\r\n         flex: initial;\r\n      }\r\n   }\r\n}",".array {\r\n   margin: 10rem auto;\r\n   width: 80%;\r\n\r\n   @include responsive(tablet) {\r\n      width: 90%;\r\n   }\r\n\r\n   &__info {\r\n      display: flex;\r\n      justify-content: space-between;\r\n      font-size: 3rem;\r\n\r\n      & span {\r\n         margin-left: 1rem;\r\n      }\r\n   }\r\n\r\n   &__bars {\r\n      height: 500px;\r\n      display: flex;\r\n      align-items: end;\r\n      margin-top: 5rem;\r\n   }\r\n\r\n   &__bar {\r\n      flex: 1;\r\n      background-image: linear-gradient(180deg, var(--clr-primary-lt), var(--clr-primary), var(--clr-base-lt));\r\n\r\n      &:not(:last-child) {\r\n         margin-right: .4rem;\r\n\r\n         @include responsive(small-laptop) {\r\n            margin-right: .2rem;\r\n         }  \r\n      }\r\n\r\n      &--current {\r\n         box-shadow: 0 0 1rem .8rem rgba(15, 165, 229, 1);\r\n      }\r\n   }\r\n}",".overlay {\r\n   position: absolute;\r\n   top: 0;\r\n   left: 0;\r\n   width: 100%;\r\n   height: 100%;\r\n   background-color: var(--clr-base);\r\n   opacity: .75;\r\n   transition: all .2s;\r\n   z-index: 10;\r\n\r\n   &--hidden {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n   }\r\n}",".btn {\r\n   outline: none;\r\n   color: inherit;\r\n   font-size: inherit;\r\n   border: .2rem solid var(--clr-primary);\r\n   padding: 1rem 2.5rem;\r\n   border-radius: 10rem;\r\n   box-shadow: var(--shadow-primary);\r\n   transition: background-color .2s;\r\n   cursor: pointer;\r\n\r\n   &--generate {\r\n      background-color: var(--clr-primary);\r\n\r\n      &:hover,\r\n      &:active {\r\n         background-color: var(--clr-primary-lt);\r\n      }\r\n   }\r\n\r\n   &--sort {\r\n      background-color: transparent;\r\n\r\n      &:hover,\r\n      &:active {\r\n         background-color: var(--clr-primary);\r\n      }\r\n   }\r\n\r\n   &--drop-down {\r\n      border: none;\r\n      box-shadow: none;\r\n      \r\n      &:hover {\r\n         background-color: rgba(250, 250, 250, .1);\r\n      }\r\n   }\r\n}\r\n\r\n.btn-container {\r\n   display: none;\r\n   margin-bottom: 10rem;\r\n\r\n   @include responsive(small-phone) {\r\n      display: flex;\r\n      flex-direction: column;\r\n      align-items: center;\r\n      gap: 2.5rem;\r\n   }\r\n}",".drop-down {\r\n   position: relative;\r\n\r\n   &__list {\r\n      position: absolute;\r\n      text-align: center;\r\n      display: flex;\r\n      flex-direction: column;\r\n      min-width: 20rem;\r\n      background-color: var(--clr-base-lt);\r\n      left: 50%;\r\n      top: 110%;\r\n      translate: -50% 0;\r\n      border-radius: 1.5rem;\r\n      overflow: hidden;\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: all .5s;\r\n   }\r\n\r\n   &__item {\r\n      padding: 1.5rem 2.5rem;\r\n      background-image: linear-gradient(90deg, var(--clr-base-lt), var(--clr-primary), var(--clr-primary-lt));\r\n      background-size: 0 .5rem;\r\n      background-repeat: no-repeat;\r\n      background-position: bottom left;\r\n      transition: background-size .3s, background-color .2s;\r\n      cursor: pointer;\r\n\r\n      &:hover {\r\n         background-size: 100% .5rem;\r\n         background-color: var(--clr-base-ltr);\r\n      }\r\n   }\r\n\r\n   &__icon {\r\n      display: inline-block;\r\n      width: 1.2rem;\r\n      height: 1.2rem;\r\n      border: solid var(--clr-ntrl-min);\r\n      border-width: 0 .25rem .25rem 0;\r\n      rotate: 45deg;\r\n      margin-left: 2rem;\r\n      margin-bottom: .5rem;\r\n      transition: all .2s;\r\n   }\r\n\r\n   &:hover &__icon {\r\n      rotate: -135deg;\r\n      margin-bottom: 0;\r\n      margin-top: .5rem;\r\n   }\r\n\r\n   &:hover &__list {\r\n      visibility: visible;\r\n      opacity: 1;\r\n   }\r\n}",".size {\r\n   &__label {\r\n      margin-right: 2rem;\r\n   }\r\n\r\n   &__range {\r\n      outline: none;\r\n      width: 50%;\r\n      cursor: pointer;\r\n   }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/abstracts/_variables.scss","webpack://./src/styles/main.scss","webpack://./src/styles/base/_reset.scss","webpack://./src/styles/abstracts/_mixins.scss","webpack://./src/styles/base/_base.scss","webpack://./src/styles/layout/_navbar.scss","webpack://./src/styles/layout/_array.scss","webpack://./src/styles/layout/_overlay.scss","webpack://./src/styles/components/_button.scss","webpack://./src/styles/components/_dropdown.scss","webpack://./src/styles/components/_sizecontrol.scss"],"names":[],"mappings":"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","sourcesContent":[":root {\r\n   --clr-base: #080b21;\r\n   --clr-base-lt: #1D274C;\r\n   --clr-base-ltr: #{lighten(#1D274C, 10%)};\r\n   \r\n   --clr-primary: #0fa5e5;\r\n   --clr-primary-lt: #{lighten(#0fa5e5, 15%)};\r\n   \r\n   --clr-ntrl-min: #fff;\r\n   --clr-ntrl-max: #000;\r\n   \r\n   --font-size-base: 2rem;\r\n   \r\n   --shadow-primary: 0 0 2rem .2rem rgba(15, 165, 229, .4);\r\n\r\n   --array-bar-width: 5px; \r\n}","//FONT\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');\r\n\r\n//ABSTRACTS\r\n\r\n@import './abstracts/variables';\r\n@import './abstracts/mixins';\r\n\r\n//BASE\r\n\r\n@import './base/reset';\r\n@import './base/base';\r\n\r\n//Layout\r\n\r\n@import './layout/navbar';\r\n@import './layout/array';\r\n@import './layout/overlay';\r\n\r\n//COMPONENTS\r\n\r\n@import './components/button';\r\n@import './components/dropdown';\r\n@import './components/sizecontrol';\r\n","*,\r\n*::before,\r\n*::after {\r\n   margin: 0;\r\n   padding: 0;\r\n   box-sizing: inherit;\r\n}\r\n\r\nhtml {\r\n   font-size: 62.5%;\r\n   box-sizing: border-box;\r\n\r\n   @include responsive(tablet) {\r\n      font-size: 50%;\r\n   }\r\n\r\n   @include responsive(phone) {\r\n      font-size: 45%;\r\n   }\r\n}\r\n\r\nul {\r\n   list-style: none;\r\n}","//RESPONSIVE\r\n\r\n\r\n\r\n@mixin responsive($device) {\r\n   @if $device == small-laptop {\r\n      @media only screen and (max-width: 87.5em) { @content }; // 1400px\r\n   }\r\n\r\n   @if $device == tablet {\r\n      @media only screen and (max-width: 62.5em) { @content }; // 1000px\r\n   }\r\n\r\n   @if $device == phone {\r\n      @media only screen and (max-width: 50em) { @content }; // 800px\r\n   }\r\n\r\n   @if $device == small-phone {\r\n      @media only screen and (max-width: 37.5em) { @content }; //600px\r\n   }\r\n\r\n   @if $device == smaller-phone {\r\n      @media only screen and (max-width: 22.5em) { @content }; //360px\r\n   }\r\n}","body {\r\n   font-family: 'Roboto', sans-serif;\r\n   font-size: var(--font-size-base);\r\n   color: var(--clr-ntrl-min);\r\n   background-color: var(--clr-base);\r\n\r\n   &::-webkit-scrollbar {\r\n      display: none;\r\n   }\r\n}",".navbar {\r\n   position: relative;\r\n   padding: 2.5rem 0;\r\n\r\n   @include responsive(tablet) {\r\n      padding: 2.5rem;\r\n   }\r\n\r\n   &__list {\r\n      display: flex;\r\n      justify-content: center;\r\n\r\n      @include responsive(tablet) {\r\n         justify-content: space-between;\r\n      }\r\n   }\r\n\r\n   &__item {\r\n      flex: 1;\r\n      align-items: center;\r\n      display: flex;\r\n      justify-content: center;\r\n\r\n      @include responsive(small-phone) {\r\n         &--generate,\r\n         &--sort {\r\n            display: none;\r\n         }\r\n      }\r\n\r\n      @include responsive(tablet) {\r\n         flex: initial;\r\n      }\r\n   }\r\n}",".array {\r\n   margin: 10rem auto;\r\n   width: 80%;\r\n\r\n   @include responsive(tablet) {\r\n      width: 90%;\r\n   }\r\n\r\n   &__info {\r\n      display: flex;\r\n      justify-content: space-between;\r\n      font-size: 3rem;\r\n\r\n      & span {\r\n         margin-left: 1rem;\r\n      }\r\n\r\n      @include responsive(phone) {\r\n         font-size: 2.5rem;\r\n      }\r\n   }\r\n\r\n   &__bars {\r\n      height: 500px;\r\n      display: flex;\r\n      align-items: end;\r\n      margin-top: 5rem;\r\n\r\n      @include responsive(phone) {\r\n         height: 250px;\r\n      }\r\n   }\r\n\r\n   &__bar {\r\n      flex: 1;\r\n      background-image: linear-gradient(180deg, var(--clr-primary-lt), var(--clr-primary), var(--clr-base-lt));\r\n\r\n      &:not(:last-child) {\r\n         margin-right: .4rem;\r\n\r\n         @include responsive(small-laptop) {\r\n            margin-right: .2rem;\r\n         }  \r\n      }\r\n\r\n      &--current {\r\n         box-shadow: 0 0 1rem .8rem rgba(15, 165, 229, 1);\r\n      }\r\n   }\r\n}",".overlay {\r\n   position: absolute;\r\n   top: 0;\r\n   left: 0;\r\n   width: 100%;\r\n   height: 100%;\r\n   background-color: var(--clr-base);\r\n   opacity: .75;\r\n   transition: all .2s;\r\n   z-index: 10;\r\n\r\n   &--hidden {\r\n      visibility: hidden;\r\n      opacity: 0;\r\n   }\r\n}",".btn {\r\n   outline: none;\r\n   color: inherit;\r\n   font-size: inherit;\r\n   border: .2rem solid var(--clr-primary);\r\n   padding: 1rem 2.5rem;\r\n   border-radius: 10rem;\r\n   box-shadow: var(--shadow-primary);\r\n   transition: background-color .2s;\r\n   cursor: pointer;\r\n\r\n   &--generate {\r\n      background-color: var(--clr-primary);\r\n\r\n      &:active {\r\n         background-color: var(--clr-primary-lt);\r\n      }\r\n\r\n      @media (hover: hover) {\r\n         &:hover {\r\n            background-color: var(--clr-primary-lt);\r\n         }\r\n      }\r\n   }\r\n\r\n   &--sort {\r\n      background-color: transparent;\r\n\r\n      &:active {\r\n         background-color: var(--clr-primary);\r\n      }\r\n\r\n      @media (hover: hover) {\r\n         &:hover {\r\n            background-color: var(--clr-primary);\r\n         }\r\n      }\r\n   }\r\n\r\n   &--drop-down {\r\n      border: none;\r\n      box-shadow: none;\r\n      \r\n      &:hover {\r\n         background-color: rgba(250, 250, 250, .1);\r\n      }\r\n   }\r\n}\r\n\r\n.btn-container {\r\n   position: relative;\r\n   display: none;\r\n   padding: 2rem 0;\r\n   margin-bottom: 10rem;\r\n\r\n   @include responsive(small-phone) {\r\n      display: flex;\r\n      flex-direction: column;\r\n      align-items: center;\r\n      gap: 2.5rem;\r\n   }\r\n}",".drop-down {\r\n   position: relative;\r\n\r\n   &__list {\r\n      position: absolute;\r\n      text-align: center;\r\n      display: flex;\r\n      flex-direction: column;\r\n      min-width: 20rem;\r\n      background-color: var(--clr-base-lt);\r\n      left: 50%;\r\n      top: 110%;\r\n      translate: -50% 0;\r\n      border-radius: 1.5rem;\r\n      overflow: hidden;\r\n      visibility: hidden;\r\n      opacity: 0;\r\n      transition: all .5s;\r\n   }\r\n\r\n   &__item {\r\n      padding: 1.5rem 2.5rem;\r\n      background-image: linear-gradient(90deg, var(--clr-base-lt), var(--clr-primary), var(--clr-primary-lt));\r\n      background-size: 0 .5rem;\r\n      background-repeat: no-repeat;\r\n      background-position: bottom left;\r\n      transition: background-size .3s, background-color .2s;\r\n      cursor: pointer;\r\n\r\n      &:hover {\r\n         background-size: 100% .5rem;\r\n         background-color: var(--clr-base-ltr);\r\n      }\r\n   }\r\n\r\n   &__icon {\r\n      display: inline-block;\r\n      width: 1.2rem;\r\n      height: 1.2rem;\r\n      border: solid var(--clr-ntrl-min);\r\n      border-width: 0 .25rem .25rem 0;\r\n      rotate: 45deg;\r\n      margin-left: 2rem;\r\n      margin-bottom: .5rem;\r\n      transition: all .2s;\r\n\r\n      @include responsive(smaller-phone) {\r\n         display: none;\r\n      }\r\n   }\r\n\r\n   &:hover &__icon {\r\n      rotate: -135deg;\r\n      margin-bottom: 0;\r\n      margin-top: .5rem;\r\n   }\r\n\r\n   &:hover &__list {\r\n      visibility: visible;\r\n      opacity: 1;\r\n   }\r\n}",".size {\r\n   &__label {\r\n      margin-right: 2rem;\r\n\r\n      @include responsive(phone) {\r\n         margin-right: 1rem;\r\n      }\r\n   }\r\n\r\n   &__range {\r\n      outline: none;\r\n      width: 50%;\r\n      cursor: pointer;\r\n   }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -814,9 +846,8 @@ var labelSize = document.querySelector('.array__size');
 var labelMethod = document.querySelector('.array__method');
 var generateButton = document.querySelectorAll('.btn--generate');
 var sortButton = document.querySelectorAll('.btn--sort');
-var overlay = document.querySelector('.overlay');
+var overlay = document.querySelectorAll('.overlay');
 var arrCurr = [];
-var arrayHeight = parseFloat(window.getComputedStyle(array).getPropertyValue('height'));
 
 // TIMER
 
@@ -900,7 +931,9 @@ var algorithms = {
             _context.next = 1;
             break;
           case 41:
-            overlay.classList.add('overlay--hidden');
+            overlay.forEach(function (o) {
+              return o.classList.add('overlay--hidden');
+            });
           case 42:
           case "end":
             return _context.stop();
@@ -1032,7 +1065,9 @@ var algorithms = {
             _context3.next = 10;
             break;
           case 27:
-            overlay.classList.add('overlay--hidden');
+            overlay.forEach(function (o) {
+              return o.classList.add('overlay--hidden');
+            });
           case 28:
           case "end":
             return _context3.stop();
@@ -1188,7 +1223,9 @@ var algorithms = {
             arrCurr = sortedIdx.map(function (currVal) {
               return arrCurr[currVal];
             });
-            overlay.classList.add('overlay--hidden');
+            overlay.forEach(function (o) {
+              return o.classList.add('overlay--hidden');
+            });
           case 11:
           case "end":
             return _context6.stop();
@@ -1294,7 +1331,9 @@ var algorithms = {
             _context8.next = 4;
             return quickS();
           case 4:
-            overlay.classList.add('overlay--hidden');
+            overlay.forEach(function (o) {
+              return o.classList.add('overlay--hidden');
+            });
           case 5:
           case "end":
             return _context8.stop();
@@ -1366,7 +1405,9 @@ var algorithms = {
             _context9.next = 1;
             break;
           case 24:
-            overlay.classList.add('overlay--hidden');
+            overlay.forEach(function (o) {
+              return o.classList.add('overlay--hidden');
+            });
           case 25:
           case "end":
             return _context9.stop();
@@ -1388,6 +1429,7 @@ function genRandomNum(min, max) {
 function genRandomArr(size) {
   var arr = [];
   var minHeight = 10;
+  var arrayHeight = parseFloat(window.getComputedStyle(array).getPropertyValue('height'));
   for (var i = 0; i < size; i++) {
     var height = genRandomNum(minHeight, arrayHeight);
     arr.push(height);
@@ -1444,7 +1486,9 @@ generateButton.forEach(function (btn) {
 sortButton.forEach(function (btn) {
   return btn.addEventListener('click', function () {
     var alg = labelMethod.textContent.toLowerCase().split(' ').join('');
-    overlay.classList.remove('overlay--hidden');
+    overlay.forEach(function (o) {
+      return o.classList.remove('overlay--hidden');
+    });
     algorithms[alg]();
   });
 });
@@ -1458,4 +1502,4 @@ createArr(sizeControl.value);
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle90e29657a1cd03737fc1.js.map
+//# sourceMappingURL=bundlef5261a452d5a966409ad.js.map
