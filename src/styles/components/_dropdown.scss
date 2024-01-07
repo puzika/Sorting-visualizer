@@ -43,6 +43,10 @@
       margin-left: 2rem;
       margin-bottom: .5rem;
       transition: all .2s;
+
+      @include responsive(small-phone) {
+         display: none;
+      }
    }
 
    &:hover &__icon {
