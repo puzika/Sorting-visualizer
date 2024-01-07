@@ -9,7 +9,7 @@ const labelSize = document.querySelector('.array__size');
 const labelMethod = document.querySelector('.array__method');
 const generateButton = document.querySelectorAll('.btn--generate');
 const sortButton = document.querySelectorAll('.btn--sort');
-const overlay = document.querySelector('.overlay');
+const overlay = document.querySelectorAll('.overlay');
 
 let arrCurr = [];
 
@@ -80,7 +80,7 @@ const algorithms = {
          minElem.classList.remove('array__bar--current');
       }
 
-      overlay.classList.add('overlay--hidden');
+      overlay.forEach(o => o.classList.add('overlay--hidden'));
    },
 
    //HEAP SORT*********************************************
@@ -170,7 +170,7 @@ const algorithms = {
          await heapify(i, 0);
       }
 
-      overlay.classList.add('overlay--hidden');
+      overlay.forEach(o => o.classList.add('overlay--hidden'));
    },
 
    //MERGE SORT********************************************
@@ -281,7 +281,7 @@ const algorithms = {
 
       arrCurr = sortedIdx.map(currVal => arrCurr[currVal]);
 
-      overlay.classList.add('overlay--hidden');
+      overlay.forEach(o => o.classList.add('overlay--hidden'));
    },
 
 
@@ -333,7 +333,7 @@ const algorithms = {
 
       await quickS();
 
-      overlay.classList.add('overlay--hidden');
+      overlay.forEach(o => o.classList.add('overlay--hidden'));
    },
 
    //BUBBLE SORT***************************************************
@@ -375,7 +375,7 @@ const algorithms = {
          if (sorted) break;
       }
 
-      overlay.classList.add('overlay--hidden');
+      overlay.forEach(o => o.classList.add('overlay--hidden'));
    }
 };
 
@@ -459,7 +459,7 @@ generateButton.forEach(btn => btn.addEventListener('click', function () {
 sortButton.forEach(btn => btn.addEventListener('click', function () {
    const alg = labelMethod.textContent.toLowerCase().split(' ').join('');
 
-   overlay.classList.remove('overlay--hidden');
+   overlay.forEach(o => o.classList.remove('overlay--hidden'));
 
    algorithms[alg]();
 }));

@@ -38,7 +38,9 @@
 }
 
 .btn-container {
+   position: relative;
    display: none;
+   padding: 2rem 0;
    margin-bottom: 10rem;
 
    @include responsive(small-phone) {
