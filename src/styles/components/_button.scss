@@ -12,18 +12,28 @@
    &--generate {
       background-color: var(--clr-primary);
 
-      &:hover,
       &:active {
          background-color: var(--clr-primary-lt);
+      }
+
+      @media (hover: hover) {
+         &:hover {
+            background-color: var(--clr-primary-lt);
+         }
       }
    }
 
    &--sort {
       background-color: transparent;
 
-      &:hover,
       &:active {
          background-color: var(--clr-primary);
+      }
+
+      @media (hover: hover) {
+         &:hover {
+            background-color: var(--clr-primary);
+         }
       }
    }
 

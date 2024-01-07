@@ -1,6 +1,10 @@
 .size {
    &__label {
       margin-right: 2rem;
+
+      @include responsive(phone) {
+         margin-right: 1rem;
+      }
    }
 
    &__range {

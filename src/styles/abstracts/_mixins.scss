@@ -18,4 +18,8 @@
    @if $device == small-phone {
       @media only screen and (max-width: 37.5em) { @content }; //600px
    }
+
+   @if $device == smaller-phone {
+      @media only screen and (max-width: 22.5em) { @content }; //360px
+   }
 }
